@@ -11,7 +11,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"), // Replace with your actual domain
+  metadataBase: new URL("https://ozdetas.com.tr"), // Replace with your actual domain
   title: "Doğal Taş Dekorasyonu | Kaliteli Doğal Taş Ürünleri",
   description: "Doğal taş dekorasyon ürünleri ile mekanlarınıza doğal bir dokunuş katın.",
   keywords: "doğal taş, mermer, granit, oniks, dekorasyon",

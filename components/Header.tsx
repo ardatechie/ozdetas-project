@@ -8,17 +8,21 @@ import Image from "next/image";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Prevent scrolling when menu is open
+  // Menü açıkken kaydırmayı engelle
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
+
+  // Menü öğelerini tanımla (Görünen isimler Türkçe, linkler İngilizce)
+  const menuItems = [
+    { label: "Ana Sayfa", path: "/" },
+    { label: "Ürünler", path: "/products" },
+    { label: "Hakkımızda", path: "/about" },
+    { label: "İletişim", path: "/contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
@@ -29,20 +33,16 @@ export default function Header() {
           <Image src="/logo.png" alt="Doğal Taş Dekor" width={140} height={45} />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Masaüstü Menü */}
         <nav className="hidden md:flex space-x-6 text-gray-700">
-          {["Ana Sayfa", "Ürünler", "Hakkımızda", "İletişim"].map((item, index) => (
-            <Link
-              key={index}
-              href={index === 0 ? "/" : `/${item.toLowerCase()}`}
-              className="hover:text-gray-900 transition"
-            >
-              {item}
+          {menuItems.map(({ label, path }, index) => (
+            <Link key={index} href={path} className="hover:text-gray-900 transition">
+              {label}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobil Menü Butonu */}
         <button
           className="md:hidden text-gray-700"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -52,7 +52,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobil Menü */}
       {menuOpen && (
         <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 text-lg text-gray-700 transition-all">
           <button
@@ -63,14 +63,14 @@ export default function Header() {
             <X size={28} />
           </button>
 
-          {["Ana Sayfa", "Ürünler", "Hakkımızda", "İletişim"].map((item, index) => (
+          {menuItems.map(({ label, path }, index) => (
             <Link
               key={index}
-              href={index === 0 ? "/" : `/${item.toLowerCase()}`}
+              href={path}
               onClick={() => setMenuOpen(false)}
               className="hover:text-gray-900 transition"
             >
-              {item}
+              {label}
             </Link>
           ))}
         </div>
