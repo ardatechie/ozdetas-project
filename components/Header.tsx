@@ -31,7 +31,7 @@ export default function Header() {
   const menuItems = [
     { label: "Ana Sayfa", path: "/" },
     { label: "Hakkımızda", path: "/about" },
-    { label: "İletişim", path: "/contact" },
+    { label: "Projeler", path: "/projects" }
   ];
 
   return (

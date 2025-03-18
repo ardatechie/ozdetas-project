@@ -117,7 +117,7 @@ export default function HomeClient({ stones }: HomeClientProps) {
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
                 <Image
-                  src="/featured-work.jpg"
+                  src="/banner1.jpg"
                   alt="Featured Stone Work"
                   fill
                   className="object-cover"
