@@ -24,7 +24,6 @@ export default function Footer() {
           <h3 className="text-lg font-semibold text-white">Bağlantılar</h3>
           <ul className="mt-4 space-y-2">
             <li><Link href="/" className="hover:text-white">Ana Sayfa</Link></li>
-            <li><Link href="/products" className="hover:text-white">Ürünler</Link></li>
             <li><Link href="/projects" className="hover:text-white">Projeler</Link></li>
             <li><Link href="/about" className="hover:text-white">Hakkımızda</Link></li>
             <li><Link href="/contact" className="hover:text-white">İletişim</Link></li>

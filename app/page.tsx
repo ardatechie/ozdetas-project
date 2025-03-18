@@ -1,6 +1,6 @@
 import HomeClient from "@/components/HomeClient";
-import { products } from "@/data/products";
+import { stones } from "../data/stones";
 
 export default function Home() {
-  return <HomeClient products={products} />;
+  return <HomeClient stones={stones} />;
 }
