@@ -103,29 +103,28 @@ export default function StoneCatalogueShowcase({ stones }: { stones: Stone[] }) 
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           >
             {currentStones.map((stone, index) => (
-              <Link href={`/stones/${stone._id}`} key={stone._id}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-800"
-                >
-                  <Image
-                    src={stone.image}
-                    alt={stone.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-0">
-                    <h3 className="text-lg font-medium text-white text-center">
-                      {stone.title}
-                    </h3>
-                  </div>
-                </motion.div>
-              </Link>
+              <motion.div
+                key={stone._id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-800"
+              >
+                <Image
+                  src={stone.image}
+                  alt={stone.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                <div className="absolute inset-x-0 bottom-0 p-4 translate-y-0">
+                  <h3 className="text-lg font-medium text-white text-center">
+                    {stone.title}
+                  </h3>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
 
@@ -156,9 +155,8 @@ export default function StoneCatalogueShowcase({ stones }: { stones: Stone[] }) 
         </div>
 
         <div className="text-center mt-16">
-          <Link
-            href="/stones"
-            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-300"
+          <div
+            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-xl cursor-not-allowed opacity-75"
           >
             Tüm Taş Koleksiyonunu İnceleyin
             <svg
@@ -174,7 +172,7 @@ export default function StoneCatalogueShowcase({ stones }: { stones: Stone[] }) 
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </Link>
+          </div>
         </div>
       </div>
     </section>

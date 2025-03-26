@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ozdetas.com.tr
+
+# Sitemaps
+Sitemap: https://ozdetas.com.tr/sitemap.xml
